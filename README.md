@@ -3,11 +3,12 @@
 A file sharing service with auto deletion features (inspired by mozilla/send)
 
 TODO:
-- Dockerize application
-- Create simple database for file metadata
-- Put upload api/front-end behind auth
-- Add file downloading front-end
-- Add instructions to README
+[x] Dockerize application
+[] Create logic to auto-terminating 
+[] Add logic for sending file to cloud storage
+[] Put upload api/front-end behind auth
+[] Add file downloading front-end
+[x] Add instructions to README
 
 # Run locally
 
