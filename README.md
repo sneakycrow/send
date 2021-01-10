@@ -7,3 +7,9 @@ TODO:
 - Create simple database for file metadata
 - Put upload api/front-end behind auth
 - Add file downloading front-end
+- Add instructions to README
+
+# Run locally
+
+1. `make build`
+2. `make start`
