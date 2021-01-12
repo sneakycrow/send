@@ -16,5 +16,5 @@ build:
 	docker tag ${IMAGE}:${VERSION} ${REGISTRY}/${IMAGE}:${VERSION}
 	docker tag ${IMAGE}:${VERSION} ${REGISTRY}/${IMAGE}:latest
 
-start: 
-	docker run --name send -p 8080:3000 -v "$(pwd)/tmp":/tmp -d sneakycrow/send:latest
+start:
+	docker run -p 8080:8080 -d sneakycrow/send:${VERSION}
