@@ -1,15 +1,12 @@
-ARG BASE_IMAGE=ekidd/rust-musl-builder:latest
-FROM ${BASE_IMAGE} AS builder
+FROM golang:1.15-alpine as builder
 
-ADD --chown=rust:rust . ./
+WORKDIR /app
+COPY . .
 
-RUN cargo build --release
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a
+RUN ls -a ${pwd}/app
 
-FROM alpine:latest
-
-EXPOSE 3000
-RUN apk --no-cache add ca-certificates
-COPY --from=builder \
-    /home/rust/src/target/x86_64-unknown-linux-musl/release/send \
-    /usr/local/bin/
-CMD /usr/local/bin/send
+FROM scratch
+COPY --from=builder /app/send /app/send
+EXPOSE 8080
+ENTRYPOINT ["/app/send"]
