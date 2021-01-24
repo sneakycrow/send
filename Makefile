@@ -17,4 +17,4 @@ build:
 	docker tag ${IMAGE}:${VERSION} ${REGISTRY}/${IMAGE}:latest
 
 start:
-	docker run -p 8080:8080 -d sneakycrow/send:${VERSION}
+	docker run -p 8080:8080 sneakycrow/send:${VERSION}
